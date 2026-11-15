@@ -1,0 +1,18 @@
+# Dolphin's Nose — Kris Veeraghanta
+
+> Website of Kris Veeraghanta, risk executive, quantitative modeler and author of eight books on operational risk, AI for risk, option pricing, country risk, optimization and game theory. Ph.D. (ABD), Operations Research (Financial Engineering), Ohio State.
+
+- [About Kris Veeraghanta](https://dolphinsnose.org/about.html)
+
+## Books
+
+- [Operational Risk in Banking: Theorems & Modeling · Volume 1](https://dolphinsnose.org/books/oprisk-vol1.html): The mathematics of the losses that banks cannot hedge.
+- [Artificial Intelligence for Operational Risk in Banking: Volume 2](https://dolphinsnose.org/books/ai-oprisk-vol2.html): An AI model earns its place only if it makes a key risk indicator more informative.
+- [Kris Veeraghanta Option Pricing Theory: Beyond Black–Scholes](https://dolphinsnose.org/books/option-pricing.html): Fifty years of quoting prices in the units of a model everyone knows is wrong.
+- [The KV Entropic Option Pricing Model: Arbitrage-Free Derivative Pricing Beyond Black–Scholes](https://dolphinsnose.org/books/entropic.html): Arbitrage-free option prices without the Black–Scholes assumptions.
+- [Nonlinear Programming via Kronecker Decomposition: Theory, Algorithms, and the KV Decompose PDE Method](https://dolphinsnose.org/books/decompose-pde.html): Factorization is the bottleneck. Decomposition removes it.
+- [Operations Research Programming using Kronecker–Veeraghanta Theorem: LP · NLP · IP · MIP](https://dolphinsnose.org/books/or-programming.html): One decomposition. Four kinds of program.
+- [Game Theory with Dynamic Rules and Artificial Intelligence: The Veeraghanta Space](https://dolphinsnose.org/books/game-theory.html): When the players learn, and the rules are dynamic.
+- [Country Risk: Models, Theorems, Artificial Intelligence and Profitable Strategies: Default · Currency · Sanctions · AI](https://dolphinsnose.org/books/country-risk.html): When the country is the risk, price it — and profit from it.
+
+Contact: kris.veeraghanta@dolphinsnose.org
