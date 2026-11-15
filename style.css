@@ -202,3 +202,8 @@ mark{background:#fde68a;color:inherit;border-radius:3px;padding:0 1px}
 .booklist li{display:flex;gap:18px;align-items:center;background:var(--card);padding:14px;border-radius:14px;box-shadow:0 10px 30px -20px rgba(11,26,51,.4)}
 .booklist img{border-radius:3px 6px 6px 3px;box-shadow:0 8px 18px -8px rgba(0,0,0,.5)}
 .booklist a{color:var(--ink);text-decoration:none}.booklist span{color:var(--muted);font-size:14.5px}
+.btn.outline{border:1px solid var(--sea);color:var(--sea)}
+.btn.outline:hover{background:#e6f5f4}
+.resume-hero{position:relative;z-index:2;padding:60px 24px 120px}
+.resume-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,5vw,56px);margin:0 0 10px}
+.resume-reader{grid-template-columns:repeat(auto-fill,minmax(420px,1fr));max-height:none}

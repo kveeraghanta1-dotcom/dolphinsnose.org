@@ -3,6 +3,7 @@
 > Website of Kris Veeraghanta, risk executive, quantitative modeler and author of eight books on operational risk, AI for risk, option pricing, country risk, optimization and game theory. Ph.D. (ABD), Operations Research (Financial Engineering), Ohio State.
 
 - [About Kris Veeraghanta](https://dolphinsnose.org/about.html)
+- [Resume of Kris Veeraghanta](https://dolphinsnose.org/resume.html)
 
 ## Books
 
