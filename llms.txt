@@ -7,8 +7,8 @@
 
 ## Books
 
-- [Operational Risk in Banking: Theorems & Modeling · Volume 1](https://dolphinsnose.org/books/oprisk-vol1.html): The mathematics of the losses that banks cannot hedge. ISBN 979-8-9828159-4-1.
-- [Artificial Intelligence for Operational Risk in Banking: Volume 2](https://dolphinsnose.org/books/ai-oprisk-vol2.html): An AI model earns its place only if it makes a key risk indicator more informative. ISBN 979-8-9828159-5-8.
+- [Operational Risk in Banking: Theorems & Modeling · Volume 1](https://dolphinsnose.org/books/oprisk-vol1.html): The mathematics of the losses that banks cannot hedge.
+- [Artificial Intelligence for Operational Risk in Banking: Volume 2](https://dolphinsnose.org/books/ai-oprisk-vol2.html): An AI model earns its place only if it makes a key risk indicator more informative.
 - [Kris Veeraghanta Option Pricing Theory: Beyond Black–Scholes](https://dolphinsnose.org/books/option-pricing.html): Fifty years of quoting prices in the units of a model everyone knows is wrong. ISBN 979-8-9828159-6-5.
 - [The KV Entropic Option Pricing Model: Arbitrage-Free Derivative Pricing Beyond Black–Scholes](https://dolphinsnose.org/books/entropic.html): Arbitrage-free option prices without the Black–Scholes assumptions. ISBN 979-8-9828159-7-2.
 - [Nonlinear Programming via Kronecker Decomposition: Theory, Algorithms, and the KV Decompose PDE Method](https://dolphinsnose.org/books/decompose-pde.html): Factorization is the bottleneck. Decomposition removes it.
