@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nonlinear Programming via Kronecker Decomposition — Theory, Algorithms, and the KV Decompose PDE Method · Kris Veeraghanta</title>
+<meta name="description" content="Factorization is the bottleneck. Decomposition removes it. Every large nonlinear program eventually reduces to a linear system, and Gaussian elimination makes that step cost cubic time and quadratic memory. This book rebuilds the theory of nonlinear programming around a…">
+<meta name="author" content="Kris Veeraghanta">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dolphinsnose.org/books/decompose-pde.html">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Dolphin's Nose · Kris Veeraghanta">
+<meta property="og:title" content="Nonlinear Programming via Kronecker Decomposition — Theory, Algorithms, and the KV Decompose PDE Method · Kris Veeraghanta">
+<meta property="og:description" content="Factorization is the bottleneck. Decomposition removes it. Every large nonlinear program eventually reduces to a linear system, and Gaussian elimination makes that step cost cubic time and quadratic memory. This book rebuilds the theory of nonlinear programming around a…">
+<meta property="og:url" content="https://dolphinsnose.org/books/decompose-pde.html">
+<meta property="og:image" content="https://dolphinsnose.org/img/decompose-pde-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1a33">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "Dolphin's Nose — Kris Veeraghanta", "url": "https://dolphinsnose.org/", "potentialAction": {"@type": "SearchAction", "target": "https://dolphinsnose.org/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@context": "https://schema.org", "@type": "Person", "name": "Kris Veeraghanta", "url": "https://dolphinsnose.org/", "image": "https://dolphinsnose.org/img/kris-veeraghanta.jpg", "email": "mailto:kris.veeraghanta@dolphinsnose.org", "jobTitle": "Risk executive, quantitative modeler and author", "address": {"@type": "PostalAddress", "addressLocality": "Charlotte", "addressRegion": "NC", "addressCountry": "US"}, "alumniOf": "The Ohio State University"}, {"@context": "https://schema.org", "@type": "Book", "name": "Nonlinear Programming via Kronecker Decomposition", "alternativeHeadline": "Theory, Algorithms, and the KV Decompose PDE Method", "author": {"@type": "Person", "name": "Kris Veeraghanta", "url": "https://dolphinsnose.org/"}, "bookFormat": "https://schema.org/EBook", "numberOfPages": 73, "inLanguage": "en-US", "bookEdition": "First edition · Version 1.2 · October 2026", "image": "https://dolphinsnose.org/img/decompose-pde-cover.jpg", "url": "https://dolphinsnose.org/books/decompose-pde.html", "description": "Every large nonlinear program eventually reduces to a linear system, and Gaussian elimination makes that step cost cubic time and quadratic memory. This book rebuilds the theory of nonlinear programming around a different idea: write the dominant operator as a Kronecker sum, diagonalize it exactly with a fast sine transform, and eliminate state and adjoint variables analytically. The optimality conditions, multipliers and duality stay classical. The computation does not: an exact direct solver for separable operators in O(N log N) work and O(N) memory, mesh-independent preconditioning, reduced-space elimination, and inexact Newton–Krylov methods with q-superlinear local convergence, compared against dense and sparse KKT solvers with every proof given two ways.", "keywords": "PDE-constrained optimization, Kronecker sums, Newton–Krylov, Duality"}]</script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html" aria-label="Dolphin's Nose home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><path fill="url(#dg)" d="M8 40c6-15 20-24 36-22 2-4 6-7 10-7-1 3-2 6-1 8 4 2 6 5 6 8-4-1-7-1-10 1-7 4-12 11-21 13 3-3 4-6 4-9-8 1-15 4-24 8z"/><path d="M4 50c6 4 12 4 18 0s12-4 18 0 12 4 18 0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/></svg><span>Dolphin’s Nose</span></a>
+  <nav><ul>
+    <li><a href="../index.html#books">Books</a></li>
+    <li class="hide-sm"><a href="../index.html#about">About</a></li>
+    <li class="hide-sm"><a href="../index.html#research">Research</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><button class="search-btn" type="button" data-open-search aria-label="Search the site"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="hide-sm">Search</span><kbd class="hide-sm">/</kbd></button></li>
+  </ul></nav>
+</div></header>
+
+<main class="book-page" data-book="decompose-pde">
+<section class="book-hero">
+  <div class="book-bg" style="background-image:url('../img/decompose-pde-cover.jpg')"></div>
+  <div class="wrap book-hero-in">
+    <a class="big-cover" href="../preview/decompose-pde-preview.pdf" target="_blank" rel="noopener"><img src="../img/decompose-pde-cover.jpg" alt="Cover of Nonlinear Programming via Kronecker Decomposition" width="935" height="1323"></a>
+    <div>
+      <div class="crumbs"><a href="../index.html#books">Books</a> › Optimization &amp; operations research</div>
+      <h1>Nonlinear Programming via Kronecker Decomposition</h1>
+      <p class="sub">Theory, Algorithms, and the KV Decompose PDE Method</p>
+      <p class="tagline">“Factorization is the bottleneck. Decomposition removes it.”</p>
+      <div class="meta"><span>Kris Veeraghanta</span><span>First edition · Version 1.2 · October 2026</span><span>73 pages</span></div>
+      <div class="bstats"><div><b>1,046,529</b><span>unknowns in one PDE solve</span></div><div><b>55 ms</b><span>and 24 MB</span></div><div><b>3,800×</b><span>peak speed-up</span></div></div>
+      <div class="btns">
+        <a class="btn primary" href="#preview">Read the preview</a>
+        <a class="btn ghost" href="#contents">Contents</a>
+        <a class="btn ghost" href="mailto:kris.veeraghanta@dolphinsnose.org?subject=Request:%20Nonlinear%20Programming%20via%20Kronecker%20Decomposition">Request the full book</a>
+      </div>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 240 110 480 10 720 60 S 1200 110 1440 60 V120 H0Z" fill="currentColor" opacity=".35"/><path d="M0 80 C 260 120 520 40 760 80 S 1220 120 1440 84 V120 H0Z" fill="currentColor"/></svg>
+</section>
+
+<section class="book-body"><div class="wrap two">
+  <article class="about-book">
+    <div class="eyebrow">About this book</div>
+    <p>Every large nonlinear program eventually reduces to a linear system, and Gaussian elimination makes that step cost cubic time and quadratic memory. This book rebuilds the theory of nonlinear programming around a different idea: write the dominant operator as a Kronecker sum, diagonalize it exactly with a fast sine transform, and eliminate state and adjoint variables analytically.</p><p>The optimality conditions, multipliers and duality stay classical. The computation does not: an exact direct solver for separable operators in O(N log N) work and O(N) memory, mesh-independent preconditioning, reduced-space elimination, and inexact Newton–Krylov methods with q-superlinear local convergence, compared against dense and sparse KKT solvers with every proof given two ways.</p>
+    <div class="kw">PDE-constrained optimization · Kronecker sums · Newton–Krylov · Duality</div>
+  </article>
+  <aside class="toc-tools">
+    <div class="eyebrow">Find inside this book</div>
+    <input type="search" id="tocFilter" placeholder="Filter chapters and sections…" aria-label="Filter the table of contents">
+    <p class="small">15 chapters · tap a chapter to see its sections and page numbers.</p>
+  </aside>
+</div></section>
+
+<section id="contents" class="toc-sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Table of contents</div><h2>What’s inside</h2></div>
+  <div class="toc" id="toc"><div class="ch leaf" id="preface"><span class="ct">Preface</span><span class="pg">9</span></div>
+<details class="ch" id="1-nonlinear-programs-and-the-linear-algebra-bottleneck"><summary><span class="ct">1 Nonlinear Programs and the Linear-Algebra Bottleneck</span><span class="pg">11</span></summary><ul class="secs"><li><span>1.1 The general problem</span><span class="pg">11</span></li><li><span>1.2 The structured class: PDE-constrained programs</span><span class="pg">11</span></li><li><span>1.3 The cost of factorization</span><span class="pg">12</span></li><li><span>1.4 The plan of attack</span><span class="pg">13</span></li></ul></details>
+<details class="ch" id="2-kronecker-algebra-and-separable-operators"><summary><span class="ct">2 Kronecker Algebra and Separable Operators</span><span class="pg">15</span></summary><ul class="secs"><li><span>2.1 The discrete setting</span><span class="pg">15</span></li><li><span>2.2 Exact diagonalization</span><span class="pg">15</span></li><li><span>2.3 Complexity</span><span class="pg">17</span></li><li><span>2.4 Stability</span><span class="pg">18</span></li></ul></details>
+<details class="ch" id="3-optimality-conditions-and-gradient-methods"><summary><span class="ct">3 Optimality Conditions and Gradient Methods</span><span class="pg">19</span></summary><ul class="secs"><li><span>3.1 Optimality conditions</span><span class="pg">19</span></li><li><span>3.2 Gradient methods and step sizes</span><span class="pg">19</span></li><li><span>3.3 Rate of convergence and the role of scaling</span><span class="pg">20</span></li><li><span>3.4 Spectral equivalence: the KV scaling</span><span class="pg">21</span></li></ul></details>
+<details class="ch" id="4-newton-inexact-newton-and-krylov-methods"><summary><span class="ct">4 Newton, Inexact Newton and Krylov Methods</span><span class="pg">23</span></summary><ul class="secs"><li><span>4.1 Newton&#x27;s method</span><span class="pg">23</span></li><li><span>4.2 Conjugate gradients with the KV preconditioner</span><span class="pg">23</span></li><li><span>4.3 Nonsymmetric operators: GMRES</span><span class="pg">24</span></li><li><span>4.4 Inexact Newton</span><span class="pg">25</span></li></ul></details>
+<details class="ch" id="5-projection-methods-bounds-and-integral-constraints"><summary><span class="ct">5 Projection Methods, Bounds and Integral Constraints</span><span class="pg">27</span></summary><ul class="secs"><li><span>5.1 Projection onto a convex set</span><span class="pg">27</span></li><li><span>5.2 Optimality over a convex set</span><span class="pg">28</span></li><li><span>5.3 Gradient projection</span><span class="pg">28</span></li><li><span>5.4 Bounds and an integral equality</span><span class="pg">28</span></li></ul></details>
+<details class="ch" id="6-equality-constraints-saddle-point-systems-and-reduced-spac"><summary><span class="ct">6 Equality Constraints, Saddle-Point Systems and Reduced-Space Elimination</span><span class="pg">31</span></summary><ul class="secs"><li><span>6.1 The Lagrange multiplier theorem</span><span class="pg">31</span></li><li><span>6.2 The saddle-point system of the model problem</span><span class="pg">32</span></li><li><span>6.3 Reduced-space elimination</span><span class="pg">33</span></li></ul></details>
+<details class="ch" id="7-inequality-constraints-active-sets-and-semismooth-newton"><summary><span class="ct">7 Inequality Constraints, Active Sets and Semismooth Newton</span><span class="pg">35</span></summary><ul class="secs"><li><span>7.1 The Karush–Kuhn–Tucker theorem</span><span class="pg">35</span></li><li><span>7.2 Control bounds as a projection</span><span class="pg">36</span></li><li><span>7.3 Primal–dual active sets and semismooth Newton</span><span class="pg">37</span></li></ul></details>
+<details class="ch" id="8-lagrangian-duality-in-the-kv-eigenbasis"><summary><span class="ct">8 Lagrangian Duality in the KV Eigenbasis</span><span class="pg">39</span></summary><ul class="secs"><li><span>8.1 The dual problem</span><span class="pg">39</span></li><li><span>8.2 The dual of the model problem</span><span class="pg">40</span></li><li><span>8.3 The method of multipliers</span><span class="pg">41</span></li></ul></details>
+<details class="ch" id="9-the-kv-decompose-pde-algorithm"><summary><span class="ct">9 The KV Decompose PDE Algorithm</span><span class="pg">43</span></summary><ul class="secs"><li><span>9.1 The algorithm</span><span class="pg">43</span></li><li><span>9.2 Cost</span><span class="pg">44</span></li><li><span>9.3 Implementation notes</span><span class="pg">45</span></li></ul></details>
+<details class="ch" id="10-computational-case-studies"><summary><span class="ct">10 Computational Case Studies</span><span class="pg">47</span></summary><ul class="secs"><li><span>10.1 Protocol</span><span class="pg">47</span></li><li><span>10.2 NLP-1: linear–quadratic Poisson control</span><span class="pg">47</span></li><li><span>10.3 NLP-2: semilinear state with control bounds</span><span class="pg">48</span></li><li><span>10.4 NLP-3: non-separable operator, convection, bounds and an integral constraint</span><span class="pg">48</span></li><li><span>10.5 A single PDE solve at scale</span><span class="pg">49</span></li><li><span>10.6 Reading the results</span><span class="pg">49</span></li></ul></details>
+<details class="ch" id="11-limitations-extensions-and-open-problems"><summary><span class="ct">11 Limitations, Extensions and Open Problems</span><span class="pg">51</span></summary><ul class="secs"><li><span>11.1 Limitations</span><span class="pg">51</span></li><li><span>11.2 Extension: low-rank corrections</span><span class="pg">52</span></li><li><span>11.3 Extension: Kronecker structure in risk models</span><span class="pg">52</span></li><li><span>11.4 Open problems</span><span class="pg">53</span></li></ul></details>
+<details class="ch" id="12-worked-examples-the-kv-model-versus-the-kkt-system"><summary><span class="ct">12 Worked Examples: the KV Model versus the KKT System</span><span class="pg">55</span></summary><ul class="secs"><li><span>12.1 Protocol</span><span class="pg">55</span></li><li><span>12.2 Two theorems that decide the comparison</span><span class="pg">56</span></li><li><span>12.3 Example E1: Helmholtz-shifted optimal control</span><span class="pg">58</span></li><li><span>12.4 Example E2: Quadratic denoising (unconstrained)</span><span class="pg">58</span></li><li><span>12.5 Example E3: The obstacle problem</span><span class="pg">59</span></li><li><span>12.6 Example E4: Exponential semilinear control with bounds</span><span class="pg">61</span></li><li><span>12.7 Example E5: Three-dimensional optimal control</span><span class="pg">62</span></li><li><span>12.8 Example E6: Minimum-variance portfolio with a Kronecker covariance</span><span class="pg">62</span></li><li><span>12.9 Summary of the measurements</span><span class="pg">64</span></li><li><span>12.10 What has been proved, and where KV does not win</span><span class="pg">65</span></li></ul></details>
+<div class="ch leaf" id="a-kronecker-identities-and-the-discrete-sine-transform"><span class="ct">A Kronecker Identities and the Discrete Sine Transform</span><span class="pg">67</span></div>
+<div class="ch leaf" id="bibliography"><span class="ct">Bibliography</span><span class="pg">69</span></div></div>
+  <p class="toc-empty" id="tocEmpty" hidden>No chapter or section matches that filter.</p>
+</div></section>
+
+<section id="preview" class="preview-sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Free preview</div><h2>Read the opening pages</h2>
+  <p>Pages 1–14 of 73: the front matter and the first chapter. For the complete book or the Solutions Manual, <a href="mailto:kris.veeraghanta@dolphinsnose.org?subject=Request:%20Nonlinear%20Programming%20via%20Kronecker%20Decomposition">email Kris</a>.</p></div>
+  <div class="reader" id="reader"><figure class="pg-img"><img src="../pages/decompose-pde/p-01.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 1"><figcaption>1</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-02.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 2"><figcaption>2</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-03.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 3"><figcaption>3</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-04.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 4"><figcaption>4</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-05.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 5"><figcaption>5</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-06.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 6"><figcaption>6</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-07.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 7"><figcaption>7</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-08.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 8"><figcaption>8</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-09.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 9"><figcaption>9</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-10.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 10"><figcaption>10</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-11.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 11"><figcaption>11</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-12.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 12"><figcaption>12</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-13.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 13"><figcaption>13</figcaption></figure><figure class="pg-img"><img src="../pages/decompose-pde/p-14.jpg" width="780" height="1170" loading="lazy" alt="Nonlinear Programming via Kronecker Decomposition, preview page 14"><figcaption>14</figcaption></figure></div>
+  <p class="small center"><a href="../preview/decompose-pde-preview.pdf" target="_blank" rel="noopener">Download the preview as a PDF ↗</a></p>
+</div></section>
+
+<nav class="pager"><div class="wrap">
+  <a href="entropic.html"><span>← Previous</span>The KV Entropic Option Pricing Model</a>
+  <a href="or-programming.html" class="r"><span>Next →</span>Operations Research Programming using Kronecker–Veeraghanta Theorem</a>
+</div></nav>
+</main>
+<footer><div class="wrap">
+  <div class="f-brand"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><path fill="url(#dg)" d="M8 40c6-15 20-24 36-22 2-4 6-7 10-7-1 3-2 6-1 8 4 2 6 5 6 8-4-1-7-1-10 1-7 4-12 11-21 13 3-3 4-6 4-9-8 1-15 4-24 8z"/><path d="M4 50c6 4 12 4 18 0s12-4 18 0 12 4 18 0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/></svg><div><b>Dolphin’s Nose</b><br><span>dolphinsnose.org · Books and research by Kris Veeraghanta</span></div></div>
+  <div class="f-links"><a href="../index.html#books">Books</a><a href="../search.html">Search</a><a href="mailto:kris.veeraghanta@dolphinsnose.org">kris.veeraghanta@dolphinsnose.org</a><a href="../sitemap.xml">Sitemap</a></div>
+  <div class="f-copy">© 2026 Kris Veeraghanta · Charlotte, North Carolina</div>
+</div></footer>
+<div class="search-ov" id="searchOv" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search the site">
+    <div class="search-in"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="searchQ" type="search" placeholder="Search books, chapters and topics — try “copula”, “Iran”, “Nash”" autocomplete="off"><button type="button" class="esc" data-close-search>Esc</button></div>
+    <div class="search-res" id="searchRes"></div>
+  </div>
+</div>
+<script src="../search-index.js" defer></script>
+<script src="../site.js" defer></script>
+</body>
+</html>

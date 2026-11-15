@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operations Research Programming using Kronecker–Veeraghanta Theorem — LP · NLP · IP · MIP · Kris Veeraghanta</title>
+<meta name="description" content="One decomposition. Four kinds of program. Linear, nonlinear, integer and mixed-integer programs all spend their time in linear algebra. Interior-point methods, Karmarkar’s legacy, factor a new matrix at every step and, as this book proves, cannot keep the…">
+<meta name="author" content="Kris Veeraghanta">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://dolphinsnose.org/books/or-programming.html">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Dolphin's Nose · Kris Veeraghanta">
+<meta property="og:title" content="Operations Research Programming using Kronecker–Veeraghanta Theorem — LP · NLP · IP · MIP · Kris Veeraghanta">
+<meta property="og:description" content="One decomposition. Four kinds of program. Linear, nonlinear, integer and mixed-integer programs all spend their time in linear algebra. Interior-point methods, Karmarkar’s legacy, factor a new matrix at every step and, as this book proves, cannot keep the…">
+<meta property="og:url" content="https://dolphinsnose.org/books/or-programming.html">
+<meta property="og:image" content="https://dolphinsnose.org/img/or-programming-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1a33">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "Dolphin's Nose — Kris Veeraghanta", "url": "https://dolphinsnose.org/", "potentialAction": {"@type": "SearchAction", "target": "https://dolphinsnose.org/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@context": "https://schema.org", "@type": "Person", "name": "Kris Veeraghanta", "url": "https://dolphinsnose.org/", "image": "https://dolphinsnose.org/img/kris-veeraghanta.jpg", "email": "mailto:kris.veeraghanta@dolphinsnose.org", "jobTitle": "Risk executive, quantitative modeler and author", "address": {"@type": "PostalAddress", "addressLocality": "Charlotte", "addressRegion": "NC", "addressCountry": "US"}, "alumniOf": "The Ohio State University"}, {"@context": "https://schema.org", "@type": "Book", "name": "Operations Research Programming using Kronecker–Veeraghanta Theorem", "alternativeHeadline": "LP · NLP · IP · MIP", "author": {"@type": "Person", "name": "Kris Veeraghanta", "url": "https://dolphinsnose.org/"}, "bookFormat": "https://schema.org/EBook", "numberOfPages": 75, "inLanguage": "en-US", "bookEdition": "First edition · Version 1.1 · November 2026", "image": "https://dolphinsnose.org/img/or-programming-cover.jpg", "url": "https://dolphinsnose.org/books/or-programming.html", "description": "Linear, nonlinear, integer and mixed-integer programs all spend their time in linear algebra. Interior-point methods, Karmarkar’s legacy, factor a new matrix at every step and, as this book proves, cannot keep the Kronecker structure a problem has. The Kronecker–Veeraghanta algorithm keeps its operator fixed: it decomposes the coupling once with Kronecker algebra and pushes every bound, penalty, nonconvexity and integrality condition into a separable step. The same decomposition then serves every iteration, restart and branch-and-bound node. Each problem class gets its own theory, its own case studies against the simplex method, Karmarkar’s algorithm, interior point and branch-and-cut, and an honest account of where the algorithm loses.", "keywords": "Linear programming, Integer programming, Simplex, Karmarkar, Branch-and-cut"}]</script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="../index.html" aria-label="Dolphin's Nose home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><path fill="url(#dg)" d="M8 40c6-15 20-24 36-22 2-4 6-7 10-7-1 3-2 6-1 8 4 2 6 5 6 8-4-1-7-1-10 1-7 4-12 11-21 13 3-3 4-6 4-9-8 1-15 4-24 8z"/><path d="M4 50c6 4 12 4 18 0s12-4 18 0 12 4 18 0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/></svg><span>Dolphin’s Nose</span></a>
+  <nav><ul>
+    <li><a href="../index.html#books">Books</a></li>
+    <li class="hide-sm"><a href="../index.html#about">About</a></li>
+    <li class="hide-sm"><a href="../index.html#research">Research</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><button class="search-btn" type="button" data-open-search aria-label="Search the site"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="hide-sm">Search</span><kbd class="hide-sm">/</kbd></button></li>
+  </ul></nav>
+</div></header>
+
+<main class="book-page" data-book="or-programming">
+<section class="book-hero">
+  <div class="book-bg" style="background-image:url('../img/or-programming-cover.jpg')"></div>
+  <div class="wrap book-hero-in">
+    <a class="big-cover" href="../preview/or-programming-preview.pdf" target="_blank" rel="noopener"><img src="../img/or-programming-cover.jpg" alt="Cover of Operations Research Programming using Kronecker–Veeraghanta Theorem" width="935" height="1323"></a>
+    <div>
+      <div class="crumbs"><a href="../index.html#books">Books</a> › Optimization &amp; operations research</div>
+      <h1>Operations Research Programming using Kronecker–Veeraghanta Theorem</h1>
+      <p class="sub">LP · NLP · IP · MIP</p>
+      <p class="tagline">“One decomposition. Four kinds of program.”</p>
+      <div class="meta"><span>Kris Veeraghanta</span><span>First edition · Version 1.1 · November 2026</span><span>75 pages</span></div>
+      <div class="bstats"><div><b>1,046,529</b><span>unknowns, convex QP to 10⁻⁸</span></div><div><b>210×</b><span>faster than interior point</span></div><div><b>12×</b><span>faster than branch-and-cut</span></div></div>
+      <div class="btns">
+        <a class="btn primary" href="#preview">Read the preview</a>
+        <a class="btn ghost" href="#contents">Contents</a>
+        <a class="btn ghost" href="mailto:kris.veeraghanta@dolphinsnose.org?subject=Request:%20Operations%20Research%20Programming%20using%20Kronecker–Veeraghanta%20Theorem">Request the full book</a>
+      </div>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 240 110 480 10 720 60 S 1200 110 1440 60 V120 H0Z" fill="currentColor" opacity=".35"/><path d="M0 80 C 260 120 520 40 760 80 S 1220 120 1440 84 V120 H0Z" fill="currentColor"/></svg>
+</section>
+
+<section class="book-body"><div class="wrap two">
+  <article class="about-book">
+    <div class="eyebrow">About this book</div>
+    <p>Linear, nonlinear, integer and mixed-integer programs all spend their time in linear algebra. Interior-point methods, Karmarkar’s legacy, factor a new matrix at every step and, as this book proves, cannot keep the Kronecker structure a problem has. The Kronecker–Veeraghanta algorithm keeps its operator fixed: it decomposes the coupling once with Kronecker algebra and pushes every bound, penalty, nonconvexity and integrality condition into a separable step.</p><p>The same decomposition then serves every iteration, restart and branch-and-bound node. Each problem class gets its own theory, its own case studies against the simplex method, Karmarkar’s algorithm, interior point and branch-and-cut, and an honest account of where the algorithm loses.</p>
+    <div class="kw">Linear programming · Integer programming · Simplex · Karmarkar · Branch-and-cut</div>
+  </article>
+  <aside class="toc-tools">
+    <div class="eyebrow">Find inside this book</div>
+    <input type="search" id="tocFilter" placeholder="Filter chapters and sections…" aria-label="Filter the table of contents">
+    <p class="small">14 chapters · tap a chapter to see its sections and page numbers.</p>
+  </aside>
+</div></section>
+
+<section id="contents" class="toc-sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Table of contents</div><h2>What’s inside</h2></div>
+  <div class="toc" id="toc"><div class="ch leaf" id="preface"><span class="ct">Preface</span><span class="pg">7</span></div>
+<details class="ch" id="four-problem-classes-and-their-linear-algebra"><summary><span class="ct">Four Problem Classes and Their Linear Algebra</span><span class="pg">9</span></summary><ul class="secs"><li><span>The four classes</span><span class="pg">9</span></li><li><span>What the classical algorithms cost</span><span class="pg">10</span></li><li><span>Where the time goes</span><span class="pg">11</span></li><li><span>Kronecker structure in optimization problems</span><span class="pg">11</span></li><li><span>The structure-loss theorem</span><span class="pg">11</span></li><li><span>The plan of attack</span><span class="pg">12</span></li></ul></details>
+<details class="ch" id="kronecker-algebra-for-programming"><summary><span class="ct">Kronecker Algebra for Programming</span><span class="pg">15</span></summary><ul class="secs"><li><span>Kronecker facts from Volume I</span><span class="pg">15</span></li><li><span>Kronecker products</span><span class="pg">15</span></li><li><span>Rank-one Kronecker sums and the transportation operator</span><span class="pg">16</span></li><li><span>Exact affine projection</span><span class="pg">16</span></li><li><span>Graph projection</span><span class="pg">17</span></li><li><span>Proximal operators</span><span class="pg">18</span></li><li><span>Costs</span><span class="pg">19</span></li></ul></details>
+<details class="ch" id="the-kroneckerveeraghanta-algorithm"><summary><span class="ct">The Kronecker–Veeraghanta Algorithm</span><span class="pg">21</span></summary><ul class="secs"><li><span>The algorithm</span><span class="pg">21</span></li><li><span>Convergence for convex programs</span><span class="pg">22</span></li><li><span>A mesh-independent linear rate for Kronecker quadratics</span><span class="pg">24</span></li><li><span>Certificates</span><span class="pg">25</span></li><li><span>Why not precondition the interior-point step?</span><span class="pg">25</span></li></ul></details>
+<details class="ch" id="linear-programming-duality-simplex-and-karmarkar"><summary><span class="ct">Linear Programming: Duality, Simplex and Karmarkar</span><span class="pg">28</span></summary><ul class="secs"><li><span>Duality</span><span class="pg">28</span></li><li><span>Vertices and the simplex method</span><span class="pg">29</span></li><li><span>Karmarkar&#x27;s projective method</span><span class="pg">30</span></li><li><span>The affine-scaling form</span><span class="pg">31</span></li></ul></details>
+<details class="ch" id="the-kroneckerveeraghanta-algorithm-for-linear-programs"><summary><span class="ct">The Kronecker–Veeraghanta Algorithm for Linear Programs</span><span class="pg">34</span></summary><ul class="secs"><li><span>Phase 1: kva-LP</span><span class="pg">34</span></li><li><span>Phase 2: crossover</span><span class="pg">35</span></li><li><span>Protocol</span><span class="pg">36</span></li><li><span>Case study LP-1: transportation</span><span class="pg">36</span></li><li><span>Case study LP-2: PDE-constrained 1 control</span><span class="pg">37</span></li><li><span>Case study LP-3: dense Kronecker 1 calibration</span><span class="pg">38</span></li><li><span>Summary for linear programs</span><span class="pg">39</span></li></ul></details>
+<details class="ch" id="convex-nonlinear-programming"><summary><span class="ct">Convex Nonlinear Programming</span><span class="pg">41</span></summary><ul class="secs"><li><span>Optimality conditions</span><span class="pg">41</span></li><li><span>Traditional methods</span><span class="pg">42</span></li><li><span>The kva for convex quadratic programs</span><span class="pg">42</span></li><li><span>Case study C1: elastic-net control on the unit square</span><span class="pg">43</span></li><li><span>Case study C2: bounded minimum-variance portfolio</span><span class="pg">44</span></li><li><span>Convex versus nonconvex</span><span class="pg">45</span></li></ul></details>
+<details class="ch" id="nonconvex-nonlinear-programming"><summary><span class="ct">Nonconvex Nonlinear Programming</span><span class="pg">47</span></summary><ul class="secs"><li><span>Stationarity</span><span class="pg">47</span></li><li><span>Weakly convex penalties</span><span class="pg">47</span></li><li><span>The kva for nonconvex programs</span><span class="pg">48</span></li><li><span>Traditional methods for nonconvex programs</span><span class="pg">50</span></li><li><span>Case study N1: MCP-sparse control</span><span class="pg">50</span></li></ul></details>
+<details class="ch" id="integer-programming"><summary><span class="ct">Integer Programming</span><span class="pg">53</span></summary><ul class="secs"><li><span>Relaxations</span><span class="pg">53</span></li><li><span>Total unimodularity and the Kronecker transportation matrix</span><span class="pg">53</span></li><li><span>Branch and bound</span><span class="pg">55</span></li><li><span>The kva for nonconvex integer programs</span><span class="pg">55</span></li><li><span>Case study IP-1: integer transportation</span><span class="pg">56</span></li><li><span>Case study IP-2: integer least squares with a Kronecker design</span><span class="pg">57</span></li></ul></details>
+<details class="ch" id="mixed-integer-programming"><summary><span class="ct">Mixed-Integer Programming</span><span class="pg">59</span></summary><ul class="secs"><li><span>Two formulations</span><span class="pg">59</span></li><li><span>Fixed charges are concave costs</span><span class="pg">59</span></li><li><span>Slope scaling with the kva engine</span><span class="pg">60</span></li><li><span>kva inside branch and bound</span><span class="pg">61</span></li><li><span>Cardinality: an exact projection</span><span class="pg">61</span></li><li><span>Case study MIP-1: fixed-charge transportation</span><span class="pg">62</span></li><li><span>Case study MIP-2: cardinality-constrained minimum variance</span><span class="pg">63</span></li></ul></details>
+<details class="ch" id="synthesis-convex-and-nonconvex-programs-under-three-approach"><summary><span class="ct">Synthesis: Convex and Nonconvex Programs under Three Approaches</span><span class="pg">65</span></summary><ul class="secs"><li><span>What each approach guarantees</span><span class="pg">65</span></li><li><span>What each approach achieved</span><span class="pg">65</span></li><li><span>Convex versus nonconvex</span><span class="pg">65</span></li><li><span>Where kva does not win</span><span class="pg">66</span></li><li><span>A decision guide</span><span class="pg">67</span></li><li><span>Open problems</span><span class="pg">67</span></li></ul></details>
+<div class="ch leaf" id="reproducibility"><span class="ct">Reproducibility</span><span class="pg">69</span></div>
+<div class="ch leaf" id="kronecker-identities"><span class="ct">Kronecker Identities</span><span class="pg">71</span></div>
+<div class="ch leaf" id="bibliography"><span class="ct">Bibliography</span><span class="pg">72</span></div></div>
+  <p class="toc-empty" id="tocEmpty" hidden>No chapter or section matches that filter.</p>
+</div></section>
+
+<section id="preview" class="preview-sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Free preview</div><h2>Read the opening pages</h2>
+  <p>Pages 1–14 of 75: the front matter and the first chapter. For the complete book or the Solutions Manual, <a href="mailto:kris.veeraghanta@dolphinsnose.org?subject=Request:%20Operations%20Research%20Programming%20using%20Kronecker–Veeraghanta%20Theorem">email Kris</a>.</p></div>
+  <div class="reader" id="reader"><figure class="pg-img"><img src="../pages/or-programming/p-01.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 1"><figcaption>1</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-02.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 2"><figcaption>2</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-03.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 3"><figcaption>3</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-04.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 4"><figcaption>4</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-05.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 5"><figcaption>5</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-06.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 6"><figcaption>6</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-07.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 7"><figcaption>7</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-08.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 8"><figcaption>8</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-09.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 9"><figcaption>9</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-10.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 10"><figcaption>10</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-11.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 11"><figcaption>11</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-12.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 12"><figcaption>12</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-13.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 13"><figcaption>13</figcaption></figure><figure class="pg-img"><img src="../pages/or-programming/p-14.jpg" width="780" height="1170" loading="lazy" alt="Operations Research Programming using Kronecker–Veeraghanta Theorem, preview page 14"><figcaption>14</figcaption></figure></div>
+  <p class="small center"><a href="../preview/or-programming-preview.pdf" target="_blank" rel="noopener">Download the preview as a PDF ↗</a></p>
+</div></section>
+
+<nav class="pager"><div class="wrap">
+  <a href="decompose-pde.html"><span>← Previous</span>Nonlinear Programming via Kronecker Decomposition</a>
+  <a href="game-theory.html" class="r"><span>Next →</span>Game Theory with Dynamic Rules and Artificial Intelligence</a>
+</div></nav>
+</main>
+<footer><div class="wrap">
+  <div class="f-brand"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#38bdf8"/></linearGradient></defs><path fill="url(#dg)" d="M8 40c6-15 20-24 36-22 2-4 6-7 10-7-1 3-2 6-1 8 4 2 6 5 6 8-4-1-7-1-10 1-7 4-12 11-21 13 3-3 4-6 4-9-8 1-15 4-24 8z"/><path d="M4 50c6 4 12 4 18 0s12-4 18 0 12 4 18 0" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/></svg><div><b>Dolphin’s Nose</b><br><span>dolphinsnose.org · Books and research by Kris Veeraghanta</span></div></div>
+  <div class="f-links"><a href="../index.html#books">Books</a><a href="../search.html">Search</a><a href="mailto:kris.veeraghanta@dolphinsnose.org">kris.veeraghanta@dolphinsnose.org</a><a href="../sitemap.xml">Sitemap</a></div>
+  <div class="f-copy">© 2026 Kris Veeraghanta · Charlotte, North Carolina</div>
+</div></footer>
+<div class="search-ov" id="searchOv" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search the site">
+    <div class="search-in"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="searchQ" type="search" placeholder="Search books, chapters and topics — try “copula”, “Iran”, “Nash”" autocomplete="off"><button type="button" class="esc" data-close-search>Esc</button></div>
+    <div class="search-res" id="searchRes"></div>
+  </div>
+</div>
+<script src="../search-index.js" defer></script>
+<script src="../site.js" defer></script>
+</body>
+</html>
